@@ -1,0 +1,23 @@
+input{
+    display: block;
+    margin: 10px;
+    width: 250px;
+    height: 30px;
+}
+
+button{
+    margin: 10px;
+    width: 257px;
+    height: 30px;
+    background-color: #04AA6D;
+    border: #04AA6D;
+    font-weight: 700;
+    color: white;
+}
+
+#container{
+    margin: 20px;
+    background-color: rgba(231, 233, 235, 0.908);
+    width: fit-content;
+    padding: 10px;
+}
