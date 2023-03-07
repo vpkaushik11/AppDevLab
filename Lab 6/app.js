@@ -111,7 +111,7 @@ if (!fs.existsSync(dir)) {
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         // to select a destination
-        cb(null, "uploads");
+        cb(null, `uploads/${client.uname}`);
     },
     filename: (req, file, cb) => {
         // to get the file name
@@ -123,7 +123,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.get('/home', (req, res) => {
-    res.render("upload", { client });
+    res.render("sophie", { client });
 });
 
 app.post("/upload", upload.single("avatar"), (req, res) => {
@@ -132,7 +132,7 @@ app.post("/upload", upload.single("avatar"), (req, res) => {
 });
 
 //joining path of directory
-const directoryPath = path.join(__dirname, "uploads");
+const directoryPath = path.join(__dirname, `uploads`, client.uname);
 //passsing directoryPath and callback function
 fs.readdir(directoryPath, function (err, files) {
   //handling error
