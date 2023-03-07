@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
+        html {
+            margin: 50px;
+        }
         input {
             display: block;
             margin: 10px;
@@ -22,15 +25,20 @@
             font-weight: 700;
             color: white;
         }
+        p{
+            margin: 10px;
+        }
 
         #container {
             margin: 20px;
             background-color: rgba(231, 233, 235, 0.908);
             width: fit-content;
             padding: 10px;
+            display: block;
+            text-align: left;
         }
     </style>
-    <title>Picture Bouy</title>
+    <title>Home Page</title>
 </head>
 
 <body>
@@ -42,6 +50,14 @@
                 <input type="file" name="avatar" />
                 <button type="submit">Upload</button>
             </form>
+        </div>
+        <br>
+        <div id="container">
+            <p><b>NOTE: </b>Type the code in the address bar to access the files</p>
+            <p>Username - <%= client.uname %></p>
+            <p>Email - <%= client.email %></p>
+            <p>Age - <%= client.age %></p>
+            <p>Files - <%= client.files %></p>
         </div>
     </center>
 </body>
