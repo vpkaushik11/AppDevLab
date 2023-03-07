@@ -111,7 +111,7 @@ if (!fs.existsSync(dir)) {
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         // to select a destination
-        cb(null, `uploads/${client.uname}`);
+        cb(null, `uploads`);
     },
     filename: (req, file, cb) => {
         // to get the file name
@@ -127,12 +127,24 @@ app.get('/home', (req, res) => {
 });
 
 app.post("/upload", upload.single("avatar"), (req, res) => {
-    console.log(storage.getFilename().originalname);
-    return res.json({ status: "OK"});
+    // console.log(storage.getFilename().originalname);
+    console.log(req.file.filename);
+    let filename = req.file.filename;
+    console.log(client);
+    userModel.findOne({ uname: client.uname })
+        .then((detail) => {
+            detail.files.push(filename);
+            detail.save();
+        })
+        .catch((err) => {
+            console.log(err + "\nUser not found!")
+        });
+    res.redirect("/home");
+    // return res.json({ status: "OK"});
 });
 
 //joining path of directory
-const directoryPath = path.join(__dirname, `uploads`, client.uname);
+const directoryPath = path.join(__dirname, `uploads`);
 //passsing directoryPath and callback function
 fs.readdir(directoryPath, function (err, files) {
   //handling error
@@ -142,7 +154,7 @@ fs.readdir(directoryPath, function (err, files) {
   //listing all files using forEach
   files.forEach(function (file) {
     // Do whatever you want to do with the file
-    console.log(file);
+    // console.log(file);
     app.get(`/file-${file}`, (req, res) => {
       res.sendFile(path.join(__dirname, "uploads", file));
     });
