@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        html {
+            margin: 50px;
+        }
+
+        input {
+            display: block;
+            margin: 10px;
+            width: 250px;
+            height: 30px;
+        }
+
+        button {
+            margin: 10px;
+            width: 257px;
+            height: 30px;
+            background-color: #04AA6D;
+            border: #04AA6D;
+            font-weight: 700;
+            color: white;
+        }
+
+        p {
+            margin: 10px;
+        }
+
+        #container {
+            margin: 20px;
+            background-color: rgba(231, 233, 235, 0.908);
+            width: fit-content;
+            padding: 10px;
+            display: block;
+            text-align: left;
+        }
+        table{
+            margin: 10px;
+            border: 1px solid black;
+            padding: 5px;
+        }
+        td{
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+    <title>Home Page</title>
+</head>
+
+<body>
+    <center>
+        <h1>Hi <%= client.uname %>!, I am Sophie</h1>
+        <h2>Upload your files here to keep them safe from the matrix</h2>
+        <div id="container">
+            <p>No spaces allowed in file name, only '-' & '_'</p>
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+                <input type="file" name="avatar" />
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+        <br>
+        <div id="container">
+            <p><b>NOTE: </b>Type the code in the address bar to access the files</p>
+            <!-- <p>Username - <%= client.uname %></p>
+            <p>Email - <%= client.email %></p>
+            <p>Age - <%= client.age %></p> -->
+            <!-- <p>Files - <%= client.files %></p> -->
+            <table>
+                <th>Files</th>
+                <% for(var i=0; i < client.files.length; i++) { %>
+                    <tr><td><%= client.files[i] %></td></tr>
+                <% } %>
+            </table>
+        </div>
+    </center>
+</body>
+
+</html>

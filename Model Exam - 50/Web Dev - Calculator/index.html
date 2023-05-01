@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Calculator Pro</title>
+</head>
+
+<body>
+    <center>
+    <h1>Calculator</h1>
+        <table>
+            <tr>
+                <td colspan="4">
+                    <input class="display" type="text" id="result" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td onclick="clearScreen()">AC</td>
+                <td onclick="backspace()">C</td>
+                <td onclick="display('%')">%</td>
+                <td onclick="display('/')">/</td>
+            </tr>
+            <tr>
+                <td onclick="display('7')">7</td>
+                <td onclick="display('8')">8</td>
+                <td onclick="display('9')">9</td>
+                <td onclick="display('*')">*</td>
+            </tr>
+            <tr>
+                <td onclick="display('4')">4</td>
+                <td onclick="display('5')">5</td>
+                <td onclick="display('6')">6</td>
+                <td onclick="display('-')">-</td>
+            </tr>
+            <tr>
+                <td onclick="display('1')">1</td>
+                <td onclick="display('2')">2</td>
+                <td onclick="display('3')">3</td>
+                <td onclick="display('+')">+</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="display('0')">0</td>
+                <td onclick="display('.')">.</td>
+                <td onclick="calculate()">=</td>
+            </tr>
+            <tr>
+                <td colspan="2" onclick="prev()">Previous</td>
+                <td colspan="2" onclick="next()"0>Next</td>
+            </tr>
+        </table>
+    </center>
+
+    <script type="text/javascript" src="scripts.js"></script>
+
+</body>
+
+</html>

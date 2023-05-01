@@ -1,0 +1,33 @@
+html{
+    font-family: sans-serif;
+    margin: 20px;
+}
+h1{
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+}
+
+input{
+    background: wheat;
+}
+
+td{
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10px;
+}
+tr{
+    padding: 3px;
+}
+table{
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+body{
+    background-image: url("Andrew-Tate-Car.jpeg");
+}
